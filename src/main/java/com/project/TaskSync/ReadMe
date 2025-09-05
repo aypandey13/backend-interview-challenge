@@ -36,3 +36,15 @@ Java 21 installed
 Maven installed (mvn -v)
 
 MySQL running
+
+List of APIs of the project 
+*********************************************
+GET	/api/tasks	Get all tasks
+GET	/api/tasks/{id}	Get a single task by ID
+POST	/api/tasks	Create a new task
+PUT	/api/tasks/{id}	Update an existing task
+DELETE	/api/tasks/{id}	Delete a task
+POST http://localhost:8080/api/tasks/process-sync
+POST http://localhost:8080/api/tasks/{id}/queue-delete
+POST http://localhost:8080/api/tasks/{id}/queue-sync
+******************************************************
