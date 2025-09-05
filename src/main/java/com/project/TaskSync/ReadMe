@@ -1,0 +1,38 @@
+This project demonstrates:
+
+Java + Spring Boot backend development.
+
+RESTful API design.
+
+Database integration using JPA/Hibernate.
+
+CRUD operations with tasks.
+
+
+Technologies Used########################
+
+Java 21
+
+Spring Boot (with JPA & Hibernate)
+
+Maven (for build management)
+
+MySQL (relational database)
+
+##############################################################
+User sends HTTP requests to the API.
+
+Spring Boot controllers handle the request and delegate to the service layer.
+
+Service layer interacts with the database using JPA repositories.
+
+The response is sent back in JSON format.
+
+#########################################################
+Prerequisites
+
+Java 21 installed
+
+Maven installed (mvn -v)
+
+MySQL running
