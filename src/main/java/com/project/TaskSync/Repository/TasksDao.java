@@ -10,5 +10,6 @@ import com.project.TaskSync.Entity.Tasks;
 
 public interface TasksDao extends JpaRepository<Tasks, UUID> {
 	 List<Tasks> findByDeletedFalse();
-	 List<Tasks> findBySync_status(Status sync_status);
+	 List<Tasks> findBySyncStatus(Status syncStatus);
+	
 }

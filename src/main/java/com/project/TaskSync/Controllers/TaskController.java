@@ -12,7 +12,7 @@ import com.project.TaskSync.Services.TasksService;
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {
-    
+
     @Autowired
     private TasksService tService;
 
@@ -38,11 +38,32 @@ public class TaskController {
     @PutMapping("/{id}")
     public Tasks updateTaskHandler(@PathVariable UUID id, @RequestBody Tasks task) {
         return tService.updateTask(id, task);
-    }  
-    
+    }
+
     // Soft delete task
     @DeleteMapping("/{id}")
     public void deleteTaskHandler(@PathVariable UUID id) {
         tService.softDeleteTask(id);
+    }
+
+    // --- 🔄 Sync-related endpoints ---
+
+    // Queue a task for sync
+    @PostMapping("/{id}/queue-sync")
+    public void queueTaskForSyncHandler(@PathVariable UUID id) {
+        Tasks task = tService.getTaskById(id);
+        tService.queueTaskForSync(task);
+    }
+
+    // Queue a task for delete (marks as deleted + pending sync)
+    @PostMapping("/{id}/queue-delete")
+    public void queueTaskForDeleteHandler(@PathVariable UUID id) {
+        tService.queueTaskForDelete(id);
+    }
+
+    // Process sync queue (simulate sync with server)
+    @PostMapping("/process-sync")
+    public void processSyncQueueHandler() {
+        tService.processSyncQueue();
     }
 }

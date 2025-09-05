@@ -41,7 +41,8 @@ public class Tasks {
  
 	
 	@Enumerated(EnumType.STRING)
-	private Status sync_status;
+	@Column(name = "sync_status") // keep DB column as snake_case
+	private Status syncStatus;
 	
 	private String serverId;
 	
