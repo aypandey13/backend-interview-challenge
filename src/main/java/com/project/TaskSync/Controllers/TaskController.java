@@ -46,22 +46,21 @@ public class TaskController {
         tService.softDeleteTask(id);
     }
 
-    // --- 🔄 Sync-related endpoints ---
 
-    // Queue a task for sync
+    
     @PostMapping("/{id}/queue-sync")
     public void queueTaskForSyncHandler(@PathVariable UUID id) {
         Tasks task = tService.getTaskById(id);
         tService.queueTaskForSync(task);
     }
 
-    // Queue a task for delete (marks as deleted + pending sync)
+   
     @PostMapping("/{id}/queue-delete")
     public void queueTaskForDeleteHandler(@PathVariable UUID id) {
         tService.queueTaskForDelete(id);
     }
 
-    // Process sync queue (simulate sync with server)
+    
     @PostMapping("/process-sync")
     public void processSyncQueueHandler() {
         tService.processSyncQueue();
